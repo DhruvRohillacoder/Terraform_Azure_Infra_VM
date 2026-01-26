@@ -1,8 +1,5 @@
-resource "azurerm_resource_group" "example" {
-  name     = "testResourceGroup1"
-  location = "West US"
-
-#   tags = {
-#     environment = "Production"
-#   }
+resource "azurerm_resource_group" "RG" {
+  for_each = var.RG
+  name     = RG.name
+  location = RG.location
 }
