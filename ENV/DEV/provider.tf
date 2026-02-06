@@ -5,7 +5,14 @@ terraform {
       version = "4.58.0"
     }
   }
+backend "azurerm" {
+  resource_group_name  = "rg-titumama-1"
+  storage_account_name = "sadevopsinsiders123"
+  container_name       = "terraform-state"
+  key                  = "varenv.terraform.tfstate"
 }
+}
+
 
 provider "azurerm" {
   # Configuration options
