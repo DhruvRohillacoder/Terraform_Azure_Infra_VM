@@ -31,3 +31,26 @@ stages:
             backendAzureRmContainerName: 'terraform-state'
             backendAzureRmKey: 'dhondhu.terraform.tfstate'
 
+- stage: terraformvalidate
+  displayName: terraform validation
+  jobs:
+    - job: terraforminit
+      steps:
+      - task: TerraformTask@5
+        inputs:
+          provider: 'azurerm'
+          command: 'validate'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
+
+- stage: terraformplan
+  displayName: terraform plan
+  jobs:
+    - job: terraforminit
+      steps:
+      - task: TerraformTask@5
+        inputs:
+          provider: 'azurerm'
+          command: 'plan'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
+          environmentServiceNameAzureRM: 'dhruv_sc'
+          environmentAzureRmOverrideSubscriptionID: 'bf9b19d0-a2bd-49ee-9a16-6b8232861da6'
