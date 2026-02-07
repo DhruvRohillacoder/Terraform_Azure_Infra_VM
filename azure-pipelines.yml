@@ -13,6 +13,18 @@ stages:
           inputs:
             terraformVersion: 'latest' 
 
+- stage: terraformvalidate
+  displayName: terraform validation
+  jobs:
+    - job: terraforminit
+      steps:
+      - task: TerraformTask@5
+        inputs:
+          provider: 'azurerm'
+          command: 'validate'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
+
+          
 - stage: terraforminit
   displayName: terraform init
   jobs:
@@ -22,6 +34,7 @@ stages:
           inputs:
             provider: 'azurerm'
             command: 'init'
+            commandOptions: '-upgrade'
             workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
             backendServiceArm: 'dhruv_sc'
             backendAzureRmOverrideSubscriptionID: 'bf9b19d0-a2bd-49ee-9a16-6b8232861da6'
@@ -30,6 +43,15 @@ stages:
             backendAzureRmContainerName: 'terraform-state'
             backendAzureRmKey: 'dhondhu.terraform.tfstate'
 
-
-        
-
+- stage: terraformplan
+  displayName: terraform plan
+  jobs:
+    - job: terraforminit
+      steps:
+      - task: TerraformTask@5
+        inputs:
+          provider: 'azurerm'
+          command: 'plan'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
+          environmentServiceNameAzureRM: 'dhruv_sc'
+          environmentAzureRmOverrideSubscriptionID: 'bf9b19d0-a2bd-49ee-9a16-6b8232861da6'
