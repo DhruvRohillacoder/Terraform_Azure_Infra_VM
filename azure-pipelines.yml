@@ -13,16 +13,16 @@ stages:
           inputs:
             terraformVersion: 'latest' 
 
-- stage: terraformvalidate
-  displayName: terraform validation
-  jobs:
-    - job: terraforminit
-      steps:
-      - task: TerraformTask@5
-        inputs:
-          provider: 'azurerm'
-          command: 'validate'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
+# - stage: terraformvalidate
+#   displayName: terraform validation
+#   jobs:
+#     - job: terraforminit
+#       steps:
+#       - task: TerraformTask@5
+#         inputs:
+#           provider: 'azurerm'
+#           command: 'validate'
+#           workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
 
           
 - stage: terraforminit
