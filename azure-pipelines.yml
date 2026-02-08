@@ -41,7 +41,7 @@ stages:
             backendAzureRmStorageAccountName: 'sadevopsinsiders123'
             backendAzureRmContainerName: 'terraform-state'
             backendAzureRmKey: 'dhondhu.terraform.tfstate'
-
+        
         - task: TerraformTask@5
           inputs:
             provider: 'azurerm'
