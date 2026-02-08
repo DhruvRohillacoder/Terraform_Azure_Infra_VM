@@ -1,6 +1,6 @@
 resource "azurerm_subnet" "subnet" {
-  name                 = "subnet001"
-  resource_group_name  = "rg001"
-  virtual_network_name = "vnet001"
-  address_prefixes     = ["10.0.1.0/24"]
+  name                 = var.name
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = var.virtual_network_name
+  address_prefixes     = var.address_prefixes
 }
