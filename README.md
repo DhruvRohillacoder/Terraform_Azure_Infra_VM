@@ -38,26 +38,23 @@ This Terraform project enables infrastructure provisioning on Microsoft Azure wi
 Terraform_Azure_Infra_VM/
 ├── LICENSE                          # Project license
 ├── README.md                        # This file
+├── azure-pipelines.yml              # Azure DevOps CI/CD pipeline
 ├── ENV/                             # Environment-specific configurations
 │   ├── DEV/                         # Development environment
-│   │   ├── main.tf                  # Main resource definitions
-│   │   ├── provider.tf              # Azure provider configuration
-│   │   ├── variables.tf             # Input variables (optional)
-│   │   ├── outputs.tf               # Output values (optional)
-│   │   └── terraform.tfvars         # Variable assignments (optional)
-│   └── Prod/                        # Production environment
-│       ├── main.tf
-│       ├── provider.tf
-│       └── ...
+│   │   ├── main.tf                  # Main resource definitions with module calls
+│   │   ├── provider.tf              # Azure provider configuration (v4.59.0)
+│   │   └── backend.tf               # Remote state backend configuration
+│   └── Prod/                        # Production environment (to be configured)
 ├── Modules/                         # Reusable Terraform modules
 │   ├── azurerm_resource_group/      # Resource Group module
-│   │   ├── main.tf                  # Resource definitions
-│   │   ├── variables.tf             # Input variables
-│   │   └── outputs.tf               # Output values
-│   └── azurerm_virtual_network/     # Virtual Network module
-│       ├── main.tf
-│       ├── variables.tf
-│       └── outputs.tf
+│   │   ├── main.tf                  # Resource Group resource definition
+│   │   └── variable.tf              # Input variables (name, location)
+│   ├── azurerm_virtual_network/     # Virtual Network module
+│   │   ├── main.tf                  # Virtual Network resource definition
+│   │   └── variable.tf              # Input variables (name, location, address_space, etc.)
+│   └── azurerm_subnet/              # Subnet module
+│       ├── main.tf                  # Subnet resource definition
+│       └── variable.tf              # Input variables (name, resource_group_name, etc.)
 └── .gitignore                       # Git ignore rules
 ```
 
