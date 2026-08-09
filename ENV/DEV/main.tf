@@ -1,7 +1,4 @@
-module "rg" {
-  source = "../../Modules/azurerm_resource_group"
-    rgs = var.rgs
-}
+
 
 # module "vnet" {
 #   source     = "../../Modules/azurerm_virtual_network"
