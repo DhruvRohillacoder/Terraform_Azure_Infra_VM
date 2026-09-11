@@ -1,1 +1,1 @@
-# variable "rgs" {}
+# variable "rg" {}
