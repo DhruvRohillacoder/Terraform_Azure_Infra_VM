@@ -13,6 +13,19 @@ stages:
           inputs:
             terraformVersion: 'latest' 
 
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            workingDirectory: '$(System.DefaultWorkingDirectory)ENV/DEV'
+            backendServiceArm: 'scon'
+            backendAzureRmOverrideSubscriptionID: 'ab9cc55a-f636-4f75-a48e-1abbd96f8439'
+            backendAzureRmResourceGroupName: 'rgdhruv'
+            backendAzureRmStorageAccountName: 'statecont'
+            backendAzureRmContainerName: 'statecont'
+            backendAzureRmKey: 'prod.terraform.tfstate'
+
+
 
 
 
