@@ -13,6 +13,14 @@ stages:
           inputs:
             terraformVersion: 'latest' 
 
+
+
+
+
+        - task: Bash@3
+          inputs:
+            filePath: 'ls -la'
+
         # - task: TerraformTask@5
         #   inputs:
         #     provider: 'azurerm'
