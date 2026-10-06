@@ -13,7 +13,15 @@ stages:
           inputs:
             terraformVersion: 'latest' 
 
-
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
+            backendServiceArm: 'dhruv-app'
+            backendAzureRmStorageAccountName: 'statestg'
+            backendAzureRmContainerName: 'tfstate'
+            backendAzureRmKey: 'wee.terraform.tfstate'
         # - task: TerraformTask@5
         #   inputs:
         #     provider: 'azurerm'
