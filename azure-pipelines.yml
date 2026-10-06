@@ -14,16 +14,16 @@ stages:
             terraformVersion: 'latest' 
 
 
-        - task: TerraformTask@5
-          inputs:
-            provider: 'azurerm'
-            command: 'init'
-            workingDirectory: '$(System.DefaultWorkingDirectory)Env/Dev'
-            backendAzureRmOverrideSubscriptionID: 'd4901a66-c148-4a55-a550-c53645acafd1'
-            backendAzureRmResourceGroupName: 'rgdhruv'
-            backendAzureRmStorageAccountName: 'dhruvstgterraform'
-            backendAzureRmContainerName: 'statecont'
-            backendAzureRmKey: 'prod.terraform.tfstate'
+        # - task: TerraformTask@5
+        #   inputs:
+        #     provider: 'azurerm'
+        #     command: 'init'
+        #     workingDirectory: '$(System.DefaultWorkingDirectory)Env/Dev'
+        #     backendAzureRmOverrideSubscriptionID: 'd4901a66-c148-4a55-a550-c53645acafd1'
+        #     backendAzureRmResourceGroupName: 'rgdhruv'
+        #     backendAzureRmStorageAccountName: 'dhruvstgterraform'
+        #     backendAzureRmContainerName: 'statecont'
+        #     backendAzureRmKey: 'prod.terraform.tfstate'
 
 
         
