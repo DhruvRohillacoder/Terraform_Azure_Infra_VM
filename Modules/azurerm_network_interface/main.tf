@@ -1,5 +1,5 @@
 resource "azurerm_network_interface" "example" {
-  name                = "rg001-x    xxnic"
+  name                = "rg001-xnic"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 
