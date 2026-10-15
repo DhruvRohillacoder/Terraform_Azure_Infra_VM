@@ -1,5 +1,5 @@
-trigger: none
-# - main
+trigger: 
+- main
 
 pool: 
     name: DhruvAgent
