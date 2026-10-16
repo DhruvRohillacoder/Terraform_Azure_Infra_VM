@@ -1,8 +1,7 @@
-trigger: 
-- main
+trigger: none
 
 pool: 
-    name: DhruvAgent
+    name: dhruvagent
 
 stages:
 - stage: PreCommit
