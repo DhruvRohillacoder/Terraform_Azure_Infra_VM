@@ -40,3 +40,14 @@ stages:
             workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
             environmentServiceNameAzureRM: 'dhruv-app'
         
+
+- stage: terraformplan
+  jobs:
+    - job: terraformplan
+      steps:
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'plan'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
+            environmentServiceNameAzureRM: 'dhruv-app'
